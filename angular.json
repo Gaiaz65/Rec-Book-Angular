@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -104,5 +105,7 @@
       }
     }
   },
-  "defaultProject": "cook-book"
+  "cli": {
+    "analytics": false
+  }
 }
