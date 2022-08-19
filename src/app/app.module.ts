@@ -1,10 +1,12 @@
-import { AppRoutingModule } from './app-routing.module';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { RecipeService } from './recipies/recipe.service';
+import { AppRoutingModule } from './app-routing.module';
+import { DropdownDirective } from './shared/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
 import { RecipiesComponent } from './recipies/recipies.component';
 import { RecipeListComponent } from './recipies/recipe-list/recipe-list.component';
@@ -34,9 +36,10 @@ import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.componen
     BrowserModule, 
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [ShoppingService],
+  providers: [ShoppingService, RecipeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

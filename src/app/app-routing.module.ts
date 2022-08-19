@@ -1,3 +1,4 @@
+import { RecipeResolverService } from './recipies/recipe-resolver.service';
 import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.component';
 import { RecipeDetailComponent } from './recipies/recipe-detail/recipe-detail.component';
 import { RecipeScreenComponent } from './recipies/recipe-screen/recipe-screen.component';
@@ -9,10 +10,21 @@ import { RecipiesComponent } from './recipies/recipies.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipiesComponent, children: [
+  {
+    path: 'recipes',
+    component: RecipiesComponent,
+    children: [
       { path: '', component: RecipeScreenComponent },
-      { path: 'new', component: RecipeEditComponent },
-      { path: ':id', component: RecipeDetailComponent },
+      {
+        path: 'new',
+        component: RecipeEditComponent,
+        resolve: [RecipeResolverService],
+      },
+      {
+        path: ':id',
+        component: RecipeDetailComponent,
+        resolve: [RecipeResolverService],
+      },
       { path: ':id/edit', component: RecipeEditComponent },
     ],
   },
