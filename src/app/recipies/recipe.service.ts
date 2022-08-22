@@ -10,20 +10,23 @@ import { Recipe } from './recipe.model';
   providedIn: 'root',
 })
 export class RecipeService {
-  recipes: Recipe[] = [
-    new Recipe(
-      'Burger',
-      'Curalua',
-      'https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410',
-      [new Ingredient('Meat', 10), new Ingredient('Apples', 10)]
-    ),
-    new Recipe(
-      'Burger',
-      'Curalua',
-      'https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410',
-      [new Ingredient('Meat', 10), new Ingredient('Apples', 10)]
-    ),
-  ];
+  // recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Burger',
+  //     'Curalua',
+  //     'https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410',
+  //     [new Ingredient('Meat', 10), new Ingredient('Apples', 10)]
+  //   ),
+  //   new Recipe(
+  //     'Burger',
+  //     'Curalua',
+  //     'https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410',
+  //     [new Ingredient('Meat', 10), new Ingredient('Apples', 10)]
+  //   ),
+  // ];
+
+  recipes:Recipe[] = [];
+
   recipesUpdated = new Subject<Recipe[]>();
   constructor(private slService: ShoppingService) {}
 

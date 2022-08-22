@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RecipeService } from './recipies/recipe.service';
@@ -17,6 +17,8 @@ import { ShoppingEditComponent } from './shoping-list/shopping-edit/shopping-edi
 import { ShoppingService } from './shoping-list/shopping.service';
 import { RecipeScreenComponent } from './recipies/recipe-screen/recipe-screen.component';
 import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,15 +33,24 @@ import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.componen
     DropdownDirective,
     RecipeScreenComponent,
     RecipeEditComponent,
+    AuthComponent,
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [ShoppingService, RecipeService],
+  providers: [
+    ShoppingService,
+    RecipeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
