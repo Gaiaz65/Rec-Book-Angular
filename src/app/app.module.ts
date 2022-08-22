@@ -1,3 +1,4 @@
+import { LoadingSpinnerComponent } from './shared/loading-circle/loading-circle.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +35,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     RecipeScreenComponent,
     RecipeEditComponent,
     AuthComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
