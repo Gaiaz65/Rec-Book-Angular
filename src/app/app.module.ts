@@ -20,6 +20,7 @@ import { RecipeScreenComponent } from './recipies/recipe-screen/recipe-screen.co
 import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { DescPipe } from './recipies/recipe-list/recipe-item/desc.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     RecipeEditComponent,
     AuthComponent,
     LoadingSpinnerComponent,
+    DescPipe,
   ],
   imports: [
     BrowserModule,
