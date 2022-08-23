@@ -1,48 +1,41 @@
-import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { ShoppingService } from './../shoping-list/shopping.service';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class RecipeService {
+  recipesUpdated = new Subject<Recipe[]>();
+
   recipes: Recipe[] = [
     new Recipe(
-      'Burger',
-      'Curalua',
-      'https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410',
-      [new Ingredient('Meat', 10), new Ingredient('Apples', 10)]
-    ),
-    new Recipe(
-      'Burger',
-      'Curalua',
+      'Burger1',
+      'Cura',
       'https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410',
       [new Ingredient('Meat', 10), new Ingredient('Apples', 10)]
     ),
   ];
 
-  recipesUpdated = new Subject<Recipe[]>();
-  
-
   constructor(private slService: ShoppingService) {}
 
+  check() {
+    console.log(this.recipes);
+  }
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
-    console.log (this.recipes)
-    this.recipesUpdated.next(recipes.slice());
+    this.recipesUpdated.next(this.recipes.slice());
   }
 
   getRecipes() {
-    return this.recipes.slice();
+    return this.recipes;
   }
 
   getRecipe(id: number) {
-    return this.recipes.slice()[id];
+    return this.recipes[id];
   }
 
   addToshoppingList(ingredients: Ingredient[]) {

@@ -7,33 +7,37 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit,OnDestroy{
+export class HeaderComponent implements OnInit, OnDestroy {
+  isAuthenticated = false;
+  private userSub: Subscription;
 
-isAuthenticated = false;
-private userSub:Subscription;
-
-  constructor(private dataStorageService: DataStorageService,
-      private authService: AuthService) {}
+  constructor(
+    private dataStorageService: DataStorageService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.userSub = this.authService.user.subscribe(user => {
-      this.isAuthenticated = !!user
-    })
+    this.userSub = this.authService.user.subscribe((user) => {
+      this.isAuthenticated = !!user;
+    });
   }
 
   onSaveData() {
-    this.dataStorageService.storeRecipes()
+    this.dataStorageService.storeRecipes();
   }
-  
+
   onFetchData() {
     this.dataStorageService.fetchRecipes().subscribe();
   }
 
   onLogout() {
-    this.authService.logout()
+    this.authService.logout();
   }
+  checkarr(){
+    this.dataStorageService.check()
+  };
 
   ngOnDestroy() {
-      this.userSub.unsubscribe()
+    this.userSub.unsubscribe();
   }
 }

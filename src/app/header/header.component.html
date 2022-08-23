@@ -1,7 +1,8 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">Recipe book</a>
+            <a class="navbar-brand"
+            routerLink="/recipes" >Recipe book</a>
         </div>
         <div class="caollapsw navbar-collapse">
             <ul class="nav navbar-nav">
@@ -20,8 +21,9 @@
                 <li class="dropdown" appDropdown>
                     <a class="dropdown-toggle">Manage <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li (click)="onFetchData()"><a>Fetch</a></li>
-                        <li (click)="onSaveData()"><a>Save</a></li>
+                        <li ><a (click)="onFetchData()">Fetch</a></li>
+                        <li ><a (click)="onSaveData()">Save</a></li>
+                        <li><a (click)="checkarr()"></a></li>
                     </ul>
                 </li>
             </ul>
