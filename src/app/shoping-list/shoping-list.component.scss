@@ -1,0 +1,11 @@
+@import "/src/scss/variables";
+
+a{
+  color: $main-grey;
+  cursor: pointer;
+}
+
+
+a:hover{
+  border: 1px solid $main-color;
+}

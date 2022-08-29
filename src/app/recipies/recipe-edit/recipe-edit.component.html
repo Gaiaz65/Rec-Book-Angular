@@ -3,8 +3,8 @@
         <form [formGroup]="receipeForm" (ngSubmit)="onSubmitForm()">
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-success" [disabled]="!receipeForm.valid">Save changes</button>
-                    <button class="btn btn-danger" (click)="stepBack()">Cancel changes</button>
+                    <button class="button button__add" [disabled]="!receipeForm.valid">Save changes</button>
+                    <button class="button btn-danger" (click)="stepBack()">Cancel changes</button>
                 </div>
             </div>
             <div class="row">
@@ -40,7 +40,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12" formArrayName="ingredients">
-                    <div class="row" 
+                    <div class="row ing-col"
                     *ngFor="let ingredient of controls; let i = index"
                     [formGroupName]="i">
                         <div class="col-xs-8">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <hr>
-                    <button class="btn btn-success" 
+                    <button class="button button__add"
                     type="button"
                     (click)="addNewIng()">Add New Ingredient</button>
                 </div>

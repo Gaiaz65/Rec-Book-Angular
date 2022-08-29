@@ -1,0 +1,10 @@
+
+@import "/src/scss/variables";
+
+label {
+  color: $main-color;
+}
+
+input:focus {
+  border: 1px solid $main-color;
+}

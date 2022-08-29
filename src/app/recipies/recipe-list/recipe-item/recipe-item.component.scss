@@ -1,9 +1,49 @@
+@import "/src/scss/variables";
+
 img {
-    max-height: 50px;
-    border-radius: 3px;
-    width: 100px;
+  max-height: 50px;
+  border-radius: 3px;
+  width: 100px;
 }
 
 .recipeItem {
+
+  &__body {
+
+    background-color: $main-grey;
+    border: 3px solid $main-grey;
     margin-bottom: 5px;
+    cursor: pointer;
+
+  }
+
+  &__body:hover {
+    border: 3px solid $main-color;
+
+  }
+
+  &__content {
+    p {
+      color: $main-color;
+    }
+
+    h4 {
+      color: $main-color;
+    }
+  }
+
+  &__active {
+    background-color: $main-color;
+    border: 3px solid $main-color;
+
+    div {
+      h4 {
+        color: $main-grey;
+      }
+
+      p {
+        color: $main-grey;
+      }
+    }
+  }
 }

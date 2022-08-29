@@ -1,13 +1,9 @@
-
-<a 
-[routerLink]="[index]"
-routerLinkActive="active"
-class="list-group-item clearfix recipeItem">
-    <div class="pull-left">
-        <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-        <p class="list-group-item-text">{{recipe.description | descriptionPipe}}</p>
-    </div>
-    <div class="pull-right">
-        <img src="{{recipe.imagePath}}" alt="{{recipe.name}}" class="img-responsive" >
-    </div>
-</a>
+<div [routerLink]="[index]" routerLinkActive="recipeItem__active" class="list-group-item clearfix recipeItem__body">
+  <div class="pull-left recipeItem__content">
+    <h4 class="list-group-item-heading ">{{recipe.name}}</h4>
+    <p class="list-group-item-text">{{recipe.description | descriptionPipe}}</p>
+  </div>
+  <div class="pull-right">
+    <img src="{{recipe.imagePath}}" alt="{{recipe.name}}" class="img-responsive">
+  </div>
+</div>

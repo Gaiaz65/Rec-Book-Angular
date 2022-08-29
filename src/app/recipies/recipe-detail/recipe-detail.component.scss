@@ -1,4 +1,4 @@
-
+@import "/src/scss/variables";
 .flexImg{
     display: flex;
     justify-content: center;
@@ -10,4 +10,8 @@ img {
     height: auto;
     border-radius: 5px;
     display: flex;
+}
+
+.description , h1, li, li a {
+  color: $main-grey;
 }
